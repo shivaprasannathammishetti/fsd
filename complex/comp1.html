@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shopping Cart</title>
+<style>
+nav {display:flex;gap:10px;flex-wrap:wrap}
+#products {display:grid;grid-template-columns:1fr 1fr;gap:10px}
+</style>
+</head>
+<body>
+
+<nav>
+<button onclick="show('register')">Register</button>
+<button onclick="show('login')">Login</button>
+<button onclick="show('catalog')">Catalog</button>
+<button onclick="show('cart')">Cart</button>
+</nav>
+
+<section id="register">
+<h2>Register</h2>
+<input id="u" placeholder="Username">
+<input id="p" type="password" placeholder="Password">
+<button onclick="reg()">Register</button>
+</section>
+
+<section id="login" hidden>
+<h2>Login</h2>
+<input id="lu" placeholder="Username">
+<input id="lp" type="password" placeholder="Password">
+<button onclick="log()">Login</button>
+</section>
+
+<section id="catalog" hidden>
+<h2>Products</h2>
+<div id="products">
+<div>Book ₹100 <button onclick="add('Book',100)">Add</button></div>
+<div>Pen ₹20 <button onclick="add('Pen',20)">Add</button></div>
+</div>
+</section>
+
+<section id="cart" hidden>
+<h2>Cart</h2>
+<ul id="items"></ul>
+Total: ₹<span id="total">0</span>
+</section>
+
+<script>
+let user="", pass="", cart=[], sum=0;
+
+function show(id) {
+ document.querySelectorAll("section").forEach(s=>s.hidden=s.id!==id);
+}
+
+function reg() {
+ user=u.value; pass=p.value;
+ alert("Registered");
+ show("login");
+}
+
+function log() {
+ if(lu.value===user && lp.value===pass && user!=="")
+ show("catalog");
+ else alert("Invalid login");
+}
+
+function add(n,p) {
+ cart.push(n+" ₹"+p);
+ sum+=p;
+ items.innerHTML=cart.map(i=>"<li>"+i+"</li>").join("");
+ total.textContent=sum;
+}
+</script>
+
+</body>
+</html>

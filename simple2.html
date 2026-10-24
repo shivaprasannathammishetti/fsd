@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Page</title>
+</head>
+<body>
+<h2>Registration Form</h2>
+<form onsubmit="return validate()">
+    Name: <input type="text" id="name"><br><br>
+    Email: <input type="text" id="email"><br><br>
+    Password: <input type="password" id="pass"><br><br>
+    <button type="submit">Register</button>
+</form>
+<p id="msg"></p>
+<script>
+function validate() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let pass = document.getElementById("pass").value;
+
+    if (name == "" || email == "" || pass == "") {
+        document.getElementById("msg").innerHTML = "Fill all fields";
+        return false;
+    }
+
+    if (!email.includes("@")) {
+        document.getElementById("msg").innerHTML = "Invalid email";
+        return false;
+    }
+
+    if (pass.length < 6) {
+        document.getElementById("msg").innerHTML = "Password must be 6 characters";
+        return false;
+    }
+
+    document.getElementById("msg").innerHTML = "Registration successful";
+    return false;
+}
+</script>
+
+</body>
+</html>
+<p>pacman -S libxml2</p>
+<p>xmllint --noout --valid bookstore.xml</p>
+<p>xmllint --noout --schema bookstore.xsd bookstore.xml</p>

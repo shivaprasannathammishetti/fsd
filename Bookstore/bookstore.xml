@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!DOCTYPE bookstore SYSTEM "bookstore.dtd">
+<bookstore xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation="bookstore.xsd">
+  <book>
+    <title>Learn HTML</title>
+    <author>Sam</author>
+    <price>250</price>
+  </book>
+</bookstore>
